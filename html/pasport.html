@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Байгаистан Республикасы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .passport {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .passport img {
+            width: 100px;
+        }
+        .passport h1 {
+            font-size: 24px;
+            color: #ff6600;
+            margin-bottom: 10px;
+        }
+        .passport h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            text-align: left;
+            margin: 10px auto;
+            max-width: 400px;
+        }
+        .form-group label {
+            font-size: 14px;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .form-group button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #e55b00;
+        }
+        .welcome-message {
+            font-size: 20px;
+            color: #ff6600;
+            margin-top: 20px;
+            font-weight: bold;
+            display: none;
+        }
+        .map-section {
+            margin-top: 20px;
+            display: none; /* Карта бастапқыда жасырылады */
+        }
+        .map-section img {
+            width: 100%; /* Ені экранның 100% болады */
+            height: auto; /* Биіктігі пропорционал түрде өзгеріп отырады */
+            max-height: 600px; /* Биіктік шектелмегенде */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-top: 10px;
+        .footer {
+            font-size: 14px;
+            color: #888;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="sensitive621_7447907034810420486.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="passport">
+        <img src="LKDN0372.jpg" alt="Логотип">
+        <h1>БАЙГАИСТАН РЕСПУБЛИКАСЫ</h1>
+        <h2>REPUBLIC OF BAIGAISTAN</h2>
+        <button id="startMusicButton" style="padding: 10px; font-size: 16px; background-color: #ff6600; color: white; border: none; border-radius: 5px; cursor: pointer;">ӘНҰРАН</button>
+        <form id="passportForm">
+            <div class="form-group">
+                <label for="name">Аты:</label>
+                <input type="text" id="name" name="name" placeholder="Атыңызды енгізіңіз" required>
+            </div>
+            <div class="form-group">
+                <label for="birthdate">Туған күні:</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Уақыты:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <div class="form-group">
+                <label for="size">Аяғының размері:</label>
+                <input type="number" id="size" name="size" placeholder="Мысалы: 42" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Мекен-жайы:</label>
+                <input type="text" id="address" name="address" placeholder="Мекен-жайыңызды енгізіңіз" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Жіберу</button>
+            </div>
+        </form>
+        <div class="welcome-message" id="welcomeMessage">
+            Байгаистан еліне қош келдіңіз!
+        </div>
+        <div class="map-section" id="mapSection">
+            <h3>Еліміздің картасы:</h3>
+            <img src="AHTF0777.WEBP" alt="Байгаистан картасы">
+        </div>
+        <div class="footer">
+            <p>&lt;&lt;00000001&gt;&gt;&gt; &lt;&lt;ZHALGIZSONDAI&gt;&gt;&gt;</p>
+        </div>
+    </div>
+
+    <script>
+        const startMusicButton = document.getElementById("startMusicButton");
+        const backgroundMusic = document.getElementById("backgroundMusic");
+        const form = document.getElementById("passportForm");
+        const welcomeMessage = document.getElementById("welcomeMessage");
+        const mapSection = document.getElementById("mapSection");
+
+        // Музыканы қолданушының әрекеті арқылы бастау
+        startMusicButton.addEventListener("click", () => {
+            backgroundMusic.play().then(() => {
+                startMusicButton.style.display = "none"; // Батырманы жасыру
+            }).catch(error => {
+                console.error("Музыканы ойнату мүмкін болмады:", error);
+            });
+        });
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Форманы жіберуді тоқтату
+            form.style.display = "none"; // Форманы жасыру
+            welcomeMessage.style.display = "block"; // Хабарламаны көрсету
+            mapSection.style.display = "block"; // Картаны көрсету
+        });
+    </script>
+</body>
+</html>
